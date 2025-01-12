@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1a975ea-cd98-4066-99d7-d9ec35ce659e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/collegeApi.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collegeList/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collegeList/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="a1a975ea-cd98-4066-99d7-d9ec35ce659e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +98,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1736699190729</updated>
-      <workItem from="1736699191771" duration="9214000" />
+      <workItem from="1736699191771" duration="9664000" />
     </task>
     <servers />
   </component>

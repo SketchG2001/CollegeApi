@@ -9,7 +9,6 @@ db.sqlite3-journal
 media
 collegeList/migrations/*
 !collegeList/migrations/__init__.py
-.idea/*
 .venv
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
 # in your Git repository. Update and uncomment the following line accordingly.
@@ -155,7 +154,7 @@ venv.bak/
 
 # mkdocs documentation
 /site
-
+.idea/*
 # mypy
 .mypy_cache/
 .dmypy.json
