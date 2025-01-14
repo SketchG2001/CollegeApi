@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=#&b^ez2mz(zdp@4u3qex_bn#^_bwby3pfdlqkj=5!1m_(@k@$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['collegeapi-b62i.onrender.com', 'localhost', '127.0.0.1']
 
