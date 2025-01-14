@@ -1,15 +1,17 @@
 from django.shortcuts import redirect
 from django.urls import reverse
+from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
-from django.contrib.auth.mixins import LoginRequiredMixin
-from .serializers import SignUpSerializer,StateFilterSerializer
+from rest_framework.renderers import JSONRenderer
+from .serializers import SignUpSerializer, StateSerializer
 import asyncio
 from playwright.async_api import async_playwright
+from .models import States
 
 
 async def fetch_data(url):
@@ -92,37 +94,20 @@ class LogOutView(APIView):
         except Exception as e:
             return Response({"error": "Invalid token"}, status=400)
 
+
 # LoginRequiredMixin
-"""class CollegeListView(APIView):
+class CollegeListView(GenericAPIView):
     permission_classes = (AllowAny,)
+    serializer_class = StateSerializer
 
     def get(self, request):
-        # Use the query parameters directly
-        state_filter = request.query_params.get('state', '37')  # Default to '23' if not provided
-        serializer = StateFilterSerializer(data=request.query_params)
+        full_url = request.build_absolute_uri()
+        print(f"Full URL: {full_url}")
+        serializer = self.get_serializer(data=request.query_params)
 
-        if serializer.is_valid():  # Validate the query params through the serializer
-            # If valid, get the filtered colleges
+        if serializer.is_valid():
+            state_filter = serializer.validated_data['state']
             colleges = get_filtered_colleges(state_filter)
-            return Response({state_filter: colleges})
+            return Response({"url": full_url,state_filter: colleges}, status=status.HTTP_200_OK)
 
-        # If invalid, return the errors
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-"""
-
-
-class CollegeListView(APIView):
-    permission_classes = (AllowAny,)
-
-    def get(self, request):
-        # Initialize the filter without needing a queryset
-        state_filter = request.query_params.get('state', None)
-
-        # If no state filter is provided, return the dropdown
-        if state_filter is None:
-            serializer = StateFilterSerializer()
-            return Response(serializer.get_choices())  # Return the choices for the dropdown
-
-        # Otherwise, process the filtered data
-        colleges = get_filtered_colleges(state_filter)
-        return Response(colleges)
